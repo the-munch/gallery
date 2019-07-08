@@ -75,7 +75,6 @@ class App extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles} 
             />
-
             <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
@@ -83,8 +82,11 @@ class App extends React.Component {
             style={customStyles}
             >
             {/* <h2 ref={subtitle => this.subtitle = subtitle} style={{float: 'right'}}>Modal Mockup</h2> */}
-            <img src={this.state.modalURL} height="625px" width="900px" style={{objectFit: 'contain'}}/>
-            <div style={{gridColumn: "2/span 1", backgroundColor: "white"}}>Munch Modal Mockup</div>
+            <div style={{gridColumn: "1/span 1", maxWidth:'900px', minWidth:'600px'}}>
+                {/* <h1>Hello</h1> */}
+                <img src={this.state.modalURL} width='900px' height="612" style={{objectFit: 'contain'}}/>   
+            </div>
+            <div style={{gridColumn: "2/span 1", backgroundColor: "white", maxWidth:'300px', minWidth:'200px'}}>Munch Modal Mockup</div>
             </Modal>
         </div>
         )

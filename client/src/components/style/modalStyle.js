@@ -1,9 +1,10 @@
 const customStyles = {
-    content : {
+    content: {
         display: "grid", 
-        gridTemplateColumns: "900px 300px", 
-        height: '625px',
-        width: '1200px',
+        gridTemplateColumns: "3fr 1fr",
+        maxWidth: '100%',
+        minWidth: '600px',
+        height: 'auto',
         padding: "0",
         border: "0",
         background: "rgba(0, 0, 0, 0.7)",
@@ -14,4 +15,7 @@ const customStyles = {
     },
   };
 
+
+//   height: '625px',
+//   width: '1200px',
 export default customStyles; 
