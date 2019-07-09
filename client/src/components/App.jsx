@@ -5,7 +5,7 @@ import sampleData from '../data/sampleData.js';
 import customStyles from './style/modalStyle.js';
 import ImageGallery from '/Users/TinaLe/Documents/gallery/client/src/components/ImageGallery.jsx';
 
-Modal.setAppElement('#app')
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#app');
 
 class App extends React.Component {
     constructor(props){
@@ -15,7 +15,7 @@ class App extends React.Component {
             current: sampleData, 
             modalIsOpen: false,
             modalURL: '',
-            hover: false
+            hover: false,
         } 
         
         // this.getGalleryData = this.getGalleryData.bind(this);
@@ -26,18 +26,18 @@ class App extends React.Component {
         this.hoverOut = this.hoverOut.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.getGalleryData(); 
-    // }
+    componentDidMount() {
+        this.getGalleryData(); 
+    }
 
-    // getGalleryData() {
-    //     axios.get('/gallery')
-    //     .then(({data})=> this.setState({
-    //         images: data,
-    //         current: data.slice(0, 3)
-    //     }))
-    //     .catch((err)=>console.log(err))
-    // }
+    getGalleryData() {
+        axios.get('/gallery')
+        .then(({data})=> this.setState({
+            images: data,
+            current: data.slice(0, 3)
+        }))
+        .catch((err)=>console.log(err))
+    }
 
     openModal(e, image) {
         e.preventDefault(); 
@@ -82,7 +82,6 @@ class App extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles}
             >
-            {/* <h2 ref={subtitle => this.subtitle = subtitle} style={{float: 'right'}}>Modal Mockup</h2> */}
             <img src={this.state.modalURL} height="625px" width="900px" style={{objectFit: 'contain'}}/>
             <div style={{gridColumn: "2/span 1", backgroundColor: "white"}}>Munch Modal Mockup</div>
             </Modal>
