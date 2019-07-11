@@ -26,21 +26,23 @@ class App extends React.Component {
         this.hoverOut = this.hoverOut.bind(this);
     }
 
-    componentDidMount() {
-        this.getGalleryData(); 
-    }
+    // componentDidMount() {
+    //     this.getGalleryData(); 
+    // }
 
-    getGalleryData() {
-        axios.get('/gallery')
-        .then(({data})=> this.setState({
-            images: data,
-            current: data.slice(0, 3)
-        }))
-        .catch((err)=>console.log(err))
-    }
+    // getGalleryData() {
+    //     axios.get('/gallery')
+    //     .then(({data})=> this.setState({
+    //         images: data,
+    //         current: data.slice(0, 3)
+    //     }))
+    //     .catch((err)=>console.log(err))
+    // }
 
     openModal(e, image) {
-        e.preventDefault(); 
+        if(e){
+            e.preventDefault(); 
+        }
         this.setState({
             modalIsOpen: true,
             modalURL: image});
