@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "react-dev": "webpack -d --watch",
-    "start": "nodemon server/index.js",
-    "database": "mysql -uroot < server/db/schema.sql",
+    "react-dev": "webpack -d",
+    "start": "node server/index.js",
+    "database": "mysql -h db -uroot -ppassword < server/db/schema.sql",
     "seed": "node ./server/db/seed.js"
   },
   "jest": {
